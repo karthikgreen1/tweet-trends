@@ -1,3 +1,4 @@
+def registry = 'https://karthik33.jfrog.io'
 def version   = '2.1.4'
 def imageName = 'karthik33.jfrog.io/artifactory/valacy-docker-local/ttrend'
 
