@@ -1,4 +1,5 @@
 def version   = '2.1.4'
+def imageName = 'https://karthik33.jfrog.io/artifactory/valacy-docker-local/ttrend'
 
 pipeline {
     agent any
