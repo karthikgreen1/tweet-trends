@@ -21,7 +21,7 @@ stage(" Docker Build ") {
         steps {
             script {
                echo '<--------------- Docker running started --------------->'  
-               docker.image(imageName+":"+version).run('-d -p 8089:80') // Example: -d for detached mode, -p to publish ports
+               docker.image(imageName+":"+version).run('-dt -p 8000:8000') // Example: -d for detached mode, -p to publish ports
                 }    
                echo '<--------------- Docker Publish Ended --------------->'  
             }
