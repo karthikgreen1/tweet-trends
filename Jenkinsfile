@@ -20,9 +20,8 @@ stage(" Docker Build ") {
         stage (" Docker Publish "){
         steps {
             script {
-               echo '<--------------- Docker Publish Started --------------->'  
-                docker.withRegistry(registry, 'jfrog'){
-                    app.push()
+               echo '<--------------- Docker running started --------------->'  
+               docker.image('imageName:version').run('-d -p 8080:80') // Example: -d for detached mode, -p to publish ports
                 }    
                echo '<--------------- Docker Publish Ended --------------->'  
             }
