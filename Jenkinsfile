@@ -3,7 +3,11 @@ def version   = '2.1.4'
 def imageName = 'karthik33.jfrog.io/valacy-docker-local/ttrend'
 
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'maven'
+        }
+    }
 environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
 }
