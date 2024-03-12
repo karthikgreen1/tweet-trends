@@ -19,24 +19,16 @@ stage("build"){
                  echo "----------- build complted ----------"
             }
         }        
-stage(" Docker Build ") {
-      steps {
-        script {
-           echo '<--------------- Docker Build Started --------------->'
-           app = docker.build(imageName+":"+version)
-           echo '<--------------- Docker Build Ends --------------->'
-        }
-      }
-    }  
-        stage (" Docker Publish "){
-        steps {
-            script {
-               echo '<--------------- Docker running started --------------->'  
-               docker.image(imageName+":"+version).run('-dt -p 8000:8001') // Example: -d for detached mode, -p to publish ports
-                }    
-               echo '<--------------- Docker Publish Ended --------------->'  
-            }
-        }
+tage('SonarQube analysis') {
+    environment {
+      scannerHome = tool 'valaxy-sonar-scanner'
+    }
+    steps{
+    withSonarQubeEnv('valaxy-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+    }
+  }
     }
     }
     
