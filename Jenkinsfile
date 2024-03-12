@@ -19,7 +19,7 @@ stage("build"){
                  echo "----------- build complted ----------"
             }
         }        
-tage('SonarQube analysis') {
+stage('SonarQube analysis') {
     environment {
       scannerHome = tool 'valaxy-sonar-scanner'
     }
