@@ -5,7 +5,7 @@ def imageName = 'karthik33.jfrog.io/valacy-docker-local/ttrend'
 pipeline {
     agent {
         node {
-            label 'maven'
+            label 'Maven'
         }
     }
 environment {
